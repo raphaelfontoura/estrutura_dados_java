@@ -12,7 +12,8 @@ public class Pilha<T> {
         return refNoEntry == null;
     }
 
-    public void push(No<T> newNo) {
+    public void push(T obj) {
+        No<T> newNo = new No<>(obj);
         No<T> refTemp = refNoEntry;
         refNoEntry = newNo;
         refNoEntry.setNextNo(refTemp);

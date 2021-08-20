@@ -67,12 +67,12 @@ public class MainApp {
 
     private static void PilhaTest() {
         Pilha<Integer> minhaPilha = new Pilha<>();
-        minhaPilha.push(new No<Integer>(1));
-        minhaPilha.push(new No<Integer>(2));
-        minhaPilha.push(new No<Integer>(3));
-        minhaPilha.push(new No<Integer>(4));
-        minhaPilha.push(new No<Integer>(5));
-        minhaPilha.push(new No<Integer>(6));
+        minhaPilha.push(1);
+        minhaPilha.push(2);
+        minhaPilha.push(3);
+        minhaPilha.push(4);
+        minhaPilha.push(5);
+        minhaPilha.push(6);
         System.out.println(minhaPilha);
 
         System.out.println("== pop 2 ==");
