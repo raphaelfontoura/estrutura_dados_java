@@ -16,14 +16,17 @@ public class MainApp {
         System.out.println("==== fila ====");
         FilaTest();
 
+        System.out.println("==== fila de inteiros ====");
+        FilaTestInteger();
+
     }
 
     private static void FilaTest() {
         Fila<String> minhaFila = new Fila<>();
-        minhaFila.enqueue(new No<String>("primeiro"));
-        minhaFila.enqueue(new No<String>("segundo"));
-        minhaFila.enqueue(new No<String>("terceiro"));
-        minhaFila.enqueue(new No<String>("quarto"));
+        minhaFila.enqueue("primeiro");
+        minhaFila.enqueue("segundo");
+        minhaFila.enqueue("terceiro");
+        minhaFila.enqueue("quarto");
 
         System.out.println(minhaFila);
         No<String> first = minhaFila.first();
@@ -39,6 +42,25 @@ public class MainApp {
         System.out.println(minhaFila);
         minhaFila.dequeue();
         System.out.println(minhaFila);
+        minhaFila.dequeue();
+        System.out.println(minhaFila);
+    }
+
+    private static void FilaTestInteger() {
+        Fila<Integer> minhaFila = new Fila<>();
+        minhaFila.enqueue(1);
+        minhaFila.enqueue(2);
+        minhaFila.enqueue(3);
+        minhaFila.enqueue(4);
+
+        System.out.println(minhaFila);
+        No<Integer> first = minhaFila.first();
+        System.out.println(first);
+        System.out.println("== dequeue ==");
+        No<Integer> dequeue = minhaFila.dequeue();
+        System.out.println(first + " = " + dequeue);
+        System.out.println(minhaFila);
+
         minhaFila.dequeue();
         System.out.println(minhaFila);
     }

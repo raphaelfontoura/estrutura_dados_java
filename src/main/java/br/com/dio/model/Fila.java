@@ -1,21 +1,22 @@
 package br.com.dio.model;
 
-public class Fila<T> {
+public class Fila<E> {
 
-    private No<T> refNoEntryQueue;
+    private No<E> refNoEntryQueue;
 
     public Fila() {
         this.refNoEntryQueue = null;
     }
 
-    public void enqueue(No<T> newNo) {
+    public void enqueue(E object) {
+        No newNo = new No(object);
         newNo.setNextNo(refNoEntryQueue);
         refNoEntryQueue = newNo;
     }
 
-    public No<T> dequeue() {
-        No<T> tempNo = null;
-        No<T> first = refNoEntryQueue;
+    public No<E> dequeue() {
+        No<E> tempNo = null;
+        No<E> first = refNoEntryQueue;
         while (!isEmpty()) {
             if (first.getNextNo() != null) {
                 tempNo = first;
@@ -32,9 +33,9 @@ public class Fila<T> {
         return first;
     }
 
-    public No<T> first() {
+    public No<E> first() {
         if (!this.isEmpty()) {
-            No<T> fistNo = refNoEntryQueue;
+            No<E> fistNo = refNoEntryQueue;
             while (true) {
                 if (fistNo.getNextNo() != null) {
                     fistNo = fistNo.getNextNo();
