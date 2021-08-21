@@ -1,6 +1,7 @@
 package br.com.dio;
 
 import br.com.dio.model.Fila;
+import br.com.dio.model.ListaEncadeada;
 import br.com.dio.model.No;
 import br.com.dio.model.Pilha;
 
@@ -19,6 +20,29 @@ public class MainApp {
         System.out.println("==== fila de inteiros ====");
         FilaTestInteger();
 
+        System.out.println("==== lista encadeada ====");
+        ListaEncadeadaTest();
+
+    }
+
+    private static void ListaEncadeadaTest() {
+        ListaEncadeada<Integer> listaEncadeada = new ListaEncadeada<>();
+        System.out.println(listaEncadeada.isEmpty());
+        System.out.println(listaEncadeada.size());
+        listaEncadeada.add(1);
+        System.out.println(listaEncadeada.size());
+        listaEncadeada.add(2);
+        System.out.println(listaEncadeada.size());
+        System.out.println(listaEncadeada.toString());
+        System.out.println(listaEncadeada.get(0));
+        System.out.println(listaEncadeada.get(1));
+        listaEncadeada.add(3);
+        Integer removeNo = listaEncadeada.remove(2);
+        System.out.println(removeNo.toString());
+        System.out.println(listaEncadeada.toString());
+        listaEncadeada.add(4);
+        listaEncadeada.add(5);
+        System.out.println(listaEncadeada.toString());
     }
 
     private static void FilaTest() {
