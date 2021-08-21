@@ -2,7 +2,7 @@ package br.com.dio;
 
 import br.com.dio.model.Fila;
 import br.com.dio.model.ListaEncadeada;
-import br.com.dio.model.No;
+import br.com.dio.model.Node;
 import br.com.dio.model.Pilha;
 
 public class MainApp {
@@ -53,10 +53,10 @@ public class MainApp {
         minhaFila.enqueue("quarto");
 
         System.out.println(minhaFila);
-        No<String> first = minhaFila.first();
+        Node<String> first = minhaFila.first();
         System.out.println(first);
         System.out.println("== dequeue ==");
-        No<String> dequeue = minhaFila.dequeue();
+        Node<String> dequeue = minhaFila.dequeue();
         System.out.println(first +" = "+ dequeue);
         System.out.println(minhaFila);
 
@@ -78,10 +78,10 @@ public class MainApp {
         minhaFila.enqueue(4);
 
         System.out.println(minhaFila);
-        No<Integer> first = minhaFila.first();
+        Node<Integer> first = minhaFila.first();
         System.out.println(first);
         System.out.println("== dequeue ==");
-        No<Integer> dequeue = minhaFila.dequeue();
+        Node<Integer> dequeue = minhaFila.dequeue();
         System.out.println(first + " = " + dequeue);
         System.out.println(minhaFila);
 
@@ -100,8 +100,8 @@ public class MainApp {
         System.out.println(minhaPilha);
 
         System.out.println("== pop 2 ==");
-        No<Integer> pop1 = minhaPilha.pop();
-        No<Integer> pop2 = minhaPilha.pop();
+        Node<Integer> pop1 = minhaPilha.pop();
+        Node<Integer> pop2 = minhaPilha.pop();
         System.out.println(minhaPilha);
         System.out.println("== resultado dos 2 pops ==");
         System.out.println(pop1);
@@ -109,18 +109,18 @@ public class MainApp {
     }
 
     private static void NosTest() {
-        No<String> no1 = new No<>("No 1");
-        No<String> no2 = new No<>("No 2");
-        no1.setNextNo(no2);
-        No<String> no3 = new No<>("No 3");
-        no2.setNextNo(no3);
-        No<String> no4 = new No<>("No 4");
-        no3.setNextNo(no4);
+        Node<String> no1 = new Node<>("No 1");
+        Node<String> no2 = new Node<>("No 2");
+        no1.setNextNode(no2);
+        Node<String> no3 = new Node<>("No 3");
+        no2.setNextNode(no3);
+        Node<String> no4 = new Node<>("No 4");
+        no3.setNextNode(no4);
 
         System.out.println(no1);
-        System.out.println(no1.getNextNo());
-        System.out.println(no1.getNextNo().getNextNo());
-        System.out.println(no2.getNextNo().getNextNo());
-        System.out.println(no3.getNextNo().getNextNo());
+        System.out.println(no1.getNextNode());
+        System.out.println(no1.getNextNode().getNextNode());
+        System.out.println(no2.getNextNode().getNextNode());
+        System.out.println(no3.getNextNode().getNextNode());
     }
 }

@@ -1,20 +1,20 @@
 package br.com.dio.model;
 
 public class ListaEncadeada<T> {
-    No<T> refEntry;
+    Node<T> refEntry;
 
     public ListaEncadeada() {
         this.refEntry = null;
     }
 
     public T remove(int index) {
-        No<T> noPivo = this.getNo(index);
+        Node<T> noPivo = this.getNo(index);
         if(index == 0) {
-            refEntry = noPivo.getNextNo();
+            refEntry = noPivo.getNextNode();
             return noPivo.getData();
         }
-        No<T> noBefore = getNo(index-1);
-        noBefore.setNextNo(noPivo.getNextNo());
+        Node<T> noBefore = getNo(index-1);
+        noBefore.setNextNode(noPivo.getNextNode());
 
         return noPivo.getData();
     }
@@ -23,14 +23,14 @@ public class ListaEncadeada<T> {
         return getNo(index).getData();
     }
 
-    private No<T> getNo(int index) {
+    private Node<T> getNo(int index) {
         isValidIndex(index);
 
-        No<T> noAux = refEntry;
-        No<T> noFound = null;
+        Node<T> noAux = refEntry;
+        Node<T> noFound = null;
         for (int i = 0; i <= index; i++) {
             noFound = noAux;
-            noAux = noFound.getNextNo();
+            noAux = noFound.getNextNode();
         }
 
         return noFound;
@@ -43,18 +43,18 @@ public class ListaEncadeada<T> {
     }
 
     public void add (T content) {
-        No<T> newNo = new No<>(content);
+        Node<T> newNo = new Node<>(content);
         if (isEmpty()) {
             refEntry = newNo;
             return;
         }
 
-        No<T> noAux = refEntry;
+        Node<T> noAux = refEntry;
         for (int i = 0; i < size()-1; i++) {
-            noAux = noAux.getNextNo();
+            noAux = noAux.getNextNode();
         }
 
-        noAux.setNextNo(newNo);
+        noAux.setNextNode(newNo);
     }
 
     public boolean isEmpty() {
@@ -63,11 +63,11 @@ public class ListaEncadeada<T> {
 
     public int size() {
         int sizeList = 0;
-        No<T> noAux = refEntry;
+        Node<T> noAux = refEntry;
         while (!isEmpty()) {
             sizeList += 1;
-            if (noAux.getNextNo() != null) {
-                noAux = noAux.getNextNo();
+            if (noAux.getNextNode() != null) {
+                noAux = noAux.getNextNode();
             } else {
                 break;
             }
@@ -79,10 +79,10 @@ public class ListaEncadeada<T> {
     @Override
     public String toString() {
         String strReturn = "";
-        No<T> noAux = refEntry;
+        Node<T> noAux = refEntry;
         for(int i = 0; i < this.size(); i++){
             strReturn += "No{"+noAux.getData()+"}-->";
-            noAux = noAux.getNextNo();
+            noAux = noAux.getNextNode();
         }
         strReturn += "null";
         return strReturn;

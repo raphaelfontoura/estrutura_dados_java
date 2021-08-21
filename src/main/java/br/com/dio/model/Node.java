@@ -1,19 +1,19 @@
 package br.com.dio.model;
 
-public class No<T> {
+public class Node<T> {
     private T content;
-    private No<T> nextNo;
+    private Node<T> nextNode;
 
-    public No(T content) {
+    public Node(T content) {
         this.content = content;
     }
 
-    public void setNextNo(No<T> nextNo) {
-        this.nextNo = nextNo;
+    public void setNextNode(Node<T> nextNode) {
+        this.nextNode = nextNode;
     }
 
-    public No<T> getNextNo() {
-        return nextNo;
+    public Node<T> getNextNode() {
+        return nextNode;
     }
 
     @Override

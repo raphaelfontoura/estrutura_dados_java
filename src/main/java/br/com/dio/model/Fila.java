@@ -2,30 +2,30 @@ package br.com.dio.model;
 
 public class Fila<E> {
 
-    private No<E> refNoEntryQueue;
+    private Node<E> refNoEntryQueue;
 
     public Fila() {
         this.refNoEntryQueue = null;
     }
 
     public void enqueue(E object) {
-        No newNo = new No(object);
-        newNo.setNextNo(refNoEntryQueue);
+        Node newNo = new Node(object);
+        newNo.setNextNode(refNoEntryQueue);
         refNoEntryQueue = newNo;
     }
 
-    public No<E> dequeue() {
-        No<E> tempNo = null;
-        No<E> first = refNoEntryQueue;
+    public Node<E> dequeue() {
+        Node<E> tempNo = null;
+        Node<E> first = refNoEntryQueue;
         while (!isEmpty()) {
-            if (first.getNextNo() != null) {
+            if (first.getNextNode() != null) {
                 tempNo = first;
-                first = first.getNextNo();
+                first = first.getNextNode();
             } else {
                 if (tempNo == null) {
                     refNoEntryQueue = null;
                 } else {
-                    tempNo.setNextNo(null);
+                    tempNo.setNextNode(null);
                 }
                 break;
             }
@@ -33,12 +33,12 @@ public class Fila<E> {
         return first;
     }
 
-    public No<E> first() {
+    public Node<E> first() {
         if (!this.isEmpty()) {
-            No<E> fistNo = refNoEntryQueue;
+            Node<E> fistNo = refNoEntryQueue;
             while (true) {
-                if (fistNo.getNextNo() != null) {
-                    fistNo = fistNo.getNextNo();
+                if (fistNo.getNextNode() != null) {
+                    fistNo = fistNo.getNextNode();
                 } else {
                     break;
                 }
@@ -55,13 +55,13 @@ public class Fila<E> {
     @Override
     public String toString() {
         String stringReturn = "";
-        No noTemp = refNoEntryQueue;
+        Node noTemp = refNoEntryQueue;
 
         if (refNoEntryQueue != null) {
             while (true) {
                 stringReturn += "[No{objeto=" + noTemp.getData() + "}]-->";
-                if (noTemp.getNextNo() != null) {
-                    noTemp = noTemp.getNextNo();
+                if (noTemp.getNextNode() != null) {
+                    noTemp = noTemp.getNextNode();
                 } else {
                     stringReturn += "null";
                     break;

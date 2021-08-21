@@ -2,7 +2,7 @@ package br.com.dio.model;
 
 public class Pilha<T> {
 
-    private No<T> refNoEntry;
+    private Node<T> refNoEntry;
 
     public Pilha() {
         this.refNoEntry = null;
@@ -13,22 +13,22 @@ public class Pilha<T> {
     }
 
     public void push(T obj) {
-        No<T> newNo = new No<>(obj);
-        No<T> refTemp = refNoEntry;
+        Node<T> newNo = new Node<>(obj);
+        Node<T> refTemp = refNoEntry;
         refNoEntry = newNo;
-        refNoEntry.setNextNo(refTemp);
+        refNoEntry.setNextNode(refTemp);
     }
 
-    public No<T> pop() {
+    public Node<T> pop() {
         if (!isEmpty()) {
-            No<T> noPoped = refNoEntry;
-            refNoEntry = refNoEntry.getNextNo();
+            Node<T> noPoped = refNoEntry;
+            refNoEntry = refNoEntry.getNextNode();
             return noPoped;
         }
         return null;
     }
 
-    public No<T> top() {
+    public Node<T> top() {
         return refNoEntry;
     }
 
@@ -37,11 +37,11 @@ public class Pilha<T> {
         String returnString = "=============\n" +
                 "   Pilha\n" +
                 "=============\n";
-        No<T> noTemp = refNoEntry;
+        Node<T> noTemp = refNoEntry;
         while (true) {
             if (noTemp != null) {
                 returnString += "[No{dado="+noTemp.getData()+"}]\n";
-                noTemp = noTemp.getNextNo();
+                noTemp = noTemp.getNextNode();
             } else {
                 break;
             }
