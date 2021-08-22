@@ -1,9 +1,6 @@
 package br.com.dio;
 
-import br.com.dio.model.Fila;
-import br.com.dio.model.ListaEncadeada;
-import br.com.dio.model.Node;
-import br.com.dio.model.Pilha;
+import br.com.dio.model.*;
 
 public class MainApp {
     public static void main(String[] args) {
@@ -23,6 +20,23 @@ public class MainApp {
         System.out.println("==== lista encadeada ====");
         ListaEncadeadaTest();
 
+        System.out.println("=== lista duplamente encadeada ===");
+        ListaDuplamenteEncadeadaTest();
+
+    }
+
+    private static void ListaDuplamenteEncadeadaTest() {
+        ListaDuplamenteEncadeada<String> minhaListaEncadeada = new ListaDuplamenteEncadeada<>();
+        minhaListaEncadeada.add("one");
+        minhaListaEncadeada.add("two");
+        System.out.println(minhaListaEncadeada.size());
+        System.out.println(minhaListaEncadeada.toString());
+        minhaListaEncadeada.add("three");
+        minhaListaEncadeada.add(2,"four");
+        minhaListaEncadeada.add("five");
+        System.out.println(minhaListaEncadeada.toString());
+        minhaListaEncadeada.remove(2);
+        System.out.println(minhaListaEncadeada.toString());
     }
 
     private static void ListaEncadeadaTest() {

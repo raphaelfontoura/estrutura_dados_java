@@ -11,6 +11,25 @@ public class ListaDuplamenteEncadeada<T> {
         this.sizeList = 0;
     }
 
+    public void remove(int index) {
+
+        if (index == 0) {
+            firstNode = firstNode.getNextNode();
+            if (firstNode != null) {
+                firstNode.setPreviousNode(null);
+            }
+        } else {
+            NodeDouble<T> nodeAux = getNode(index);
+            nodeAux.getPreviousNode().setNextNode(nodeAux.getNextNode());
+            if (nodeAux != lastNode) {
+                nodeAux.getNextNode().setPreviousNode(nodeAux.getPreviousNode());
+            } else {
+                lastNode = nodeAux;
+            }
+        }
+        this.sizeList--;
+    }
+
     public void add(T element) {
         NodeDouble<T> newNodeDouble = new NodeDouble<>(element);
         newNodeDouble.setNextNode(null);
@@ -22,6 +41,27 @@ public class ListaDuplamenteEncadeada<T> {
             lastNode.setNextNode(newNodeDouble);
         }
         lastNode = newNodeDouble;
+        sizeList++;
+    }
+
+    public void add(int index, T element) {
+        NodeDouble<T> newNodeDouble = new NodeDouble<>(element);
+        NodeDouble<T> nodeAux = getNode(index);
+        newNodeDouble.setNextNode(nodeAux);
+
+        if (newNodeDouble.getNextNode() != null) {
+            newNodeDouble.setPreviousNode(nodeAux.getPreviousNode());
+            newNodeDouble.getNextNode().setPreviousNode(newNodeDouble);
+        } else {
+            newNodeDouble.setPreviousNode(lastNode);
+            lastNode = newNodeDouble;
+        }
+
+        if (index == 0){
+            firstNode = newNodeDouble;
+        } else {
+            newNodeDouble.getPreviousNode().setNextNode(newNodeDouble);
+        }
         sizeList++;
     }
 
@@ -39,5 +79,17 @@ public class ListaDuplamenteEncadeada<T> {
 
     public int size() {
         return sizeList;
+    }
+
+    @Override
+    public String toString() {
+        String strReturn = "";
+        NodeDouble<T> nodeAux = firstNode;
+        for (int i = 0; i < size(); i++) {
+            strReturn += "[No{content="+nodeAux.getData()+"}]-->";
+            nodeAux = nodeAux.getNextNode();
+        }
+        strReturn += "null";
+        return strReturn;
     }
 }
