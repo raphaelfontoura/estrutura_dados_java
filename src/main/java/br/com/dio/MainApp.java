@@ -42,11 +42,16 @@ public class MainApp {
         minhaArvore.insert(new TreeObj(31));
         minhaArvore.insert(new TreeObj(29));
 
-        minhaArvore.showInOrder();
-        minhaArvore.showPosOrder();
-        minhaArvore.showPreOrder();
+        showBinaryTree(minhaArvore);
 
         minhaArvore.insert(new TreeObj(32));
+        showBinaryTree(minhaArvore);
+
+        minhaArvore.insert(new TreeObj(23));
+        showBinaryTree(minhaArvore);
+    }
+
+    private static void showBinaryTree(BinaryTree<TreeObj> minhaArvore) {
         minhaArvore.showInOrder();
         minhaArvore.showPosOrder();
         minhaArvore.showPreOrder();
