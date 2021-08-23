@@ -1,6 +1,7 @@
 package br.com.dio;
 
 import br.com.dio.model.*;
+import com.sun.source.tree.Tree;
 
 public class MainApp {
     public static void main(String[] args) {
@@ -26,6 +27,29 @@ public class MainApp {
         System.out.println("=== lista circular ===");
         ListaCircularTest();
 
+        System.out.println("=== Árvore binária ===");
+        BinaryTreeTest();
+    }
+
+    private static void BinaryTreeTest() {
+        BinaryTree<TreeObj> minhaArvore = new BinaryTree<>();
+        minhaArvore.insert(new TreeObj(13));
+        minhaArvore.insert(new TreeObj(10));
+        minhaArvore.insert(new TreeObj(25));
+        minhaArvore.insert(new TreeObj(2));
+        minhaArvore.insert(new TreeObj(12));
+        minhaArvore.insert(new TreeObj(20));
+        minhaArvore.insert(new TreeObj(31));
+        minhaArvore.insert(new TreeObj(29));
+
+        minhaArvore.showInOrder();
+        minhaArvore.showPosOrder();
+        minhaArvore.showPreOrder();
+
+        minhaArvore.insert(new TreeObj(32));
+        minhaArvore.showInOrder();
+        minhaArvore.showPosOrder();
+        minhaArvore.showPreOrder();
     }
 
     private static void ListaCircularTest() {
