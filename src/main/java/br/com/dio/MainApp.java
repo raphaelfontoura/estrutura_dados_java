@@ -23,6 +23,32 @@ public class MainApp {
         System.out.println("=== lista duplamente encadeada ===");
         ListaDuplamenteEncadeadaTest();
 
+        System.out.println("=== lista circular ===");
+        ListaCircularTest();
+
+    }
+
+    private static void ListaCircularTest() {
+        ListaCircular<String> minhaListaCircular = new ListaCircular<>();
+        System.out.println(minhaListaCircular.isEmpty());
+        System.out.println(minhaListaCircular);
+        minhaListaCircular.add("item1");
+        minhaListaCircular.add("item2");
+        minhaListaCircular.add("item3");
+        minhaListaCircular.add("item4");
+        minhaListaCircular.add("item5");
+        System.out.println(minhaListaCircular);
+        System.out.println(minhaListaCircular.isEmpty());
+        System.out.println("Tamanho da lista: " + minhaListaCircular.size());
+        minhaListaCircular.remove(3);
+        System.out.println(minhaListaCircular);
+        System.out.println("Novo tamanho da lista: " + minhaListaCircular.size());
+        System.out.println("Remove index 0");
+        minhaListaCircular.remove(0);
+        System.out.println(minhaListaCircular);
+        System.out.println("Remove index 1");
+        minhaListaCircular.remove(1);
+        System.out.println(minhaListaCircular);
     }
 
     private static void ListaDuplamenteEncadeadaTest() {
