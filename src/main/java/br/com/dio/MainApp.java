@@ -40,13 +40,14 @@ public class MainApp {
         System.out.println(minhaListaCircular);
         System.out.println(minhaListaCircular.isEmpty());
         System.out.println("Tamanho da lista: " + minhaListaCircular.size());
+        System.out.println("Remove elemento de índice 3: " + minhaListaCircular.get(3));
         minhaListaCircular.remove(3);
         System.out.println(minhaListaCircular);
         System.out.println("Novo tamanho da lista: " + minhaListaCircular.size());
-        System.out.println("Remove index 0");
+        System.out.println("Remove index 0: " + minhaListaCircular.get(0));
         minhaListaCircular.remove(0);
         System.out.println(minhaListaCircular);
-        System.out.println("Remove index 1");
+        System.out.println("Remove index 1: " + minhaListaCircular.get(1));
         minhaListaCircular.remove(1);
         System.out.println(minhaListaCircular);
     }
